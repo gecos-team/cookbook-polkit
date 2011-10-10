@@ -1,0 +1,7 @@
+maintainer        "David Amian"
+maintainer_email  "damian@emergya.com"
+license           "GPL v2"
+description       "Disable mount device all user with exception if exists"
+version           "0.1.0"
+supports          "polkit"
+recipe            "polkit", "Disable mount device all user with exception if exists"
