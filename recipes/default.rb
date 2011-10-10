@@ -19,7 +19,7 @@ cookbook_file "/usr/share/polkit-1/actions/org.freedesktop.udisks.policy" do
 end
 
 template "/var/lib/polkit-1/localauthority/10-vendor.d/com.ubuntu.desktop.pkla" do
-  if node[:usermount] != nil
+  if node.attribute?('usermount')
     if (FileTest.exist?( "/var/lib/polkit-1/localauthority/10-vendor.d/com.ubuntu.desktop.pkla" ) and not FileTest.exist?( "/var/lib/polkit-1/localauthority/10-vendor.d/com.ubuntu.desktop.pkla.orig" ))
       FileUtils.cp_r "/var/lib/polkit-1/localauthority/10-vendor.d/com.ubuntu.desktop.pkla", "/var/lib/polkit-1/localauthority/10-vendor.d/com.ubuntu.desktop.pkla.orig"
  
