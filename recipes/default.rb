@@ -35,3 +35,7 @@ template "/var/lib/polkit-1/localauthority/10-vendor.d/com.ubuntu.desktop.pkla" 
     source "com.ubuntu.desktop.pkla.erb"
   end
 end
+
+#def remove() 
+#    Chef::Log.info("test remove method")
+#end
