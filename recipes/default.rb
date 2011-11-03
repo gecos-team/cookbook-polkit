@@ -8,7 +8,7 @@
 
 udisk_policy = "/usr/share/polkit-1/actions/org.freedesktop.udisks.policy"
 cookbook_file udisk_policy do
-  if File.exist? udisk_policy and not File.exist? "#{udisk_policy}.orig"
+  if FileTest.exist? udisk_policy and not FileTest.exist? "#{udisk_policy}.orig"
     FileUtils.copy cookbooks-chef-amian, "#{udisks_policy}.orig"
   end
 
@@ -21,7 +21,7 @@ end
 desktop_pkla = "/var/lib/polkit-1/localauthority/10-vendor.d/com.ubuntu.desktop.pkla"
 template desktop_pkla do
   if node.attribute?('usermount')
-    if File.exist? desktop_pkla and not File.exist? "#{desktop_pkla}.orig"
+    if FileTest.exist? desktop_pkla and not FileTest.exist? "#{desktop_pkla}.orig"
       FileUtils.copy desktop_pkla, "#{desktop_pkla}.orig"
     end
     users = node[:usermount].inject("") { |users,user| users << ";unix-user:#{user}" }
